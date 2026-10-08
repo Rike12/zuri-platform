@@ -27,3 +27,8 @@ variable "availability_zones" {
   type        = list(string)
   default     = ["eu-west-2a", "eu-west-2b"]
 }
+
+variable "admin_cidr" {
+  description = "CIDR block allowed to access the production EC2 host over SSH"
+  type        = string
+}

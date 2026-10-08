@@ -6,7 +6,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket       = "zuri-market-terraform-state"
+    bucket       = "zuri-market-terraform-state-123515104957"
     key          = "dev/terraform.tfstate"
     region       = "eu-west-2"
     use_lockfile = true
@@ -41,7 +41,7 @@ module "compute" {
   name              = "zuri"
   environment       = "dev"
   instance_type     = var.instance_type
-  key_name          = "zuri-k3s-dev-2"
+  key_name          = "my-key"
   subnet_id         = module.vpc.public_subnet_ids[0]
   security_group_id = module.security_groups.k3s_security_group_id
   user_data         = file("${path.module}/../../scripts/install-k3s.sh")
