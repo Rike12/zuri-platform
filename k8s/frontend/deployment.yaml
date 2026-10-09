@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zuri-frontend
+  labels:
+    app: zuri-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zuri-frontend
+  template:
+    metadata:
+      labels:
+        app: zuri-frontend
+    spec:
+      serviceAccountName: zuri-frontend
+      containers:
+        - name: frontend
+          image: ghcr.io/rike12/zuriapp-frontend:latest
+          ports:
+            - containerPort: 80
