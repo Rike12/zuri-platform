@@ -21,3 +21,19 @@ services:
       - "8080:80"
     depends_on:
       - backend
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9091:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      - backend
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3002:3000"
+    depends_on:
+      - prometheus
