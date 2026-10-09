@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zuri-frontend
+  labels:
+    app: zuri-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zuri-frontend
+  template:
+    metadata:
+      labels:
+        app: zuri-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: 016147629467.dkr.ecr.eu-west-2.amazonaws.com/zuri-frontend:latest
+          ports:
+            - containerPort: 80

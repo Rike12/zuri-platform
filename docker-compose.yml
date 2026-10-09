@@ -1,0 +1,39 @@
+services:
+  backend:
+    build:
+      context: ../zuriapp-backend
+    container_name: zuri-backend
+    ports:
+      - "5000:5000"
+    environment:
+      PORT: 5000
+      API_SECRET_KEY: ${API_SECRET_KEY}
+      STORE_NAME: ${STORE_NAME}
+
+  frontend:
+    build:
+      context: ../zuriapp-frontend
+      args:
+        VITE_API_URL: http://localhost:5000
+        VITE_STORE_NAME: Zuri Market
+    container_name: zuri-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9091:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      - backend
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3002:3000"
+    depends_on:
+      - prometheus

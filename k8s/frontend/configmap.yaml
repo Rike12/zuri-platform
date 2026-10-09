@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: zuri-frontend-config
+data:
+  VITE_STORE_NAME: "Zuri Market"
+  VITE_API_URL: "http://zuri-backend:5000"
