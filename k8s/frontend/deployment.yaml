@@ -14,8 +14,9 @@ spec:
       labels:
         app: zuri-frontend
     spec:
+      serviceAccountName: zuri-frontend
       containers:
         - name: frontend
-          image: 016147629467.dkr.ecr.eu-west-2.amazonaws.com/zuri-frontend:latest
+          image: ghcr.io/rike12/zuriapp-frontend:latest
           ports:
             - containerPort: 80
