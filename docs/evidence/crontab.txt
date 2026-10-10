@@ -1,0 +1,10 @@
+# PayFlow Automation Cron Jobs
+
+*/5 * * * * ~/payflow/scripts/disk_monitor.sh >> ~/payflow/logs/cron.log 2>&1
+*/2 * * * * ~/payflow/scripts/watchdog.sh >> ~/payflow/logs/cron.log 2>&1
+0 2 * * * ~/payflow/scripts/backup_database.sh >> ~/payflow/logs/cron.log 2>&1
+0 1 * * 0 ~/payflow/scripts/cleanup_logs.sh >> ~/payflow/logs/cron.log 2>&1
+0 8 * * 1-5 ~/payflow/scripts/server_report.sh >> ~/payflow/logs/cron.log 2>&1
+*/5 * * * * ~/payflow/scripts/memory_monitor.sh >> ~/payflow/logs/cron.log 2>&1
+0 6 * * 1 ~/payflow/scripts/login_report.sh >> ~/payflow/logs/cron.log 2>&1
+0 9 * * * HEALTH_REPORT_FILE=/home/mutiat/zuri-health-report.log /bin/bash /home/mutiat/zuri-capstone/zuri-platform/scripts/health-check.sh
