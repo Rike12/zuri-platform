@@ -165,7 +165,7 @@ Recommended evidence:
 ## Remaining work
 
 - Verify AWS Secrets Manager integration and permissions.
-- Add a dedicated Terraform IAM module if required by the brief.
+- - Verify the new Terraform IAM module's permissions, instance-profile attachment and least-privilege access.
 - Complete production compute configuration if required.
 - Install an Ingress controller for end-to-end Ingress routing.
 - Add a SonarQube quality gate or an accepted equivalent.

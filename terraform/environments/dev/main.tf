@@ -38,11 +38,18 @@ module "security_groups" {
 module "compute" {
   source = "../../modules/compute"
 
-  name              = "zuri"
-  environment       = "dev"
-  instance_type     = var.instance_type
-  key_name          = "my-key"
-  subnet_id         = module.vpc.public_subnet_ids[0]
-  security_group_id = module.security_groups.k3s_security_group_id
-  user_data         = file("${path.module}/../../scripts/install-k3s.sh")
+  name                      = "zuri"
+  environment               = "dev"
+  instance_type             = var.instance_type
+  key_name                  = "my-key"
+  subnet_id                 = module.vpc.public_subnet_ids[0]
+  security_group_id         = module.security_groups.k3s_security_group_id
+  iam_instance_profile_name = module.iam.instance_profile_name
+  user_data                 = file("${path.module}/../../scripts/install-k3s.sh")
+}
+
+module "iam" {
+  source      = "../../modules/iam"
+  name        = "zuri"
+  environment = "dev"
 }

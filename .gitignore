@@ -9,3 +9,9 @@
 *.tfvars.json
 crash.log
 crash.*.log
+
+# Terraform plans and local state
+*.tfplan
+*.tfplan.*
+**/*.tfplan
+**/*.tfplan.*

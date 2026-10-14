@@ -14,9 +14,14 @@ resource "aws_instance" "k3s" {
   key_name                    = var.key_name
   subnet_id                   = var.subnet_id
   vpc_security_group_ids      = [var.security_group_id]
+  iam_instance_profile        = var.iam_instance_profile_name
   associate_public_ip_address = true
 
   user_data = var.user_data
+
+  lifecycle {
+    ignore_changes = [ami]
+  }
 
   tags = {
     Name        = "${var.name}-k3s"
