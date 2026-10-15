@@ -108,7 +108,7 @@ kubectl port-forward service/zuri-backend 5001:5000
 
 Then open http://localhost:8081 and check http://localhost:5001/health.
 
-**Ingress note:** the Ingress resource is defined, but an Ingress controller must be installed and configured before it can route traffic. Port-forwarding is the current local demonstration method.
+**Ingress:** Local Kind demonstrations use port-forwarding. In the AWS K3s deployment, Traefik is running as the Ingress controller, and the frontend and `/api/products` route have been verified over HTTP. The backend health endpoint is available at `/health` on the backend service.
 
 ## Monitoring with Prometheus and Grafana
 
@@ -148,32 +148,16 @@ GitHub Actions is hosted, integrates directly with GitHub and avoids maintaining
 
 ## Evidence
 
-Store evidence in `docs/` or a dedicated `docs/evidence/` directory, and link to the actual files before submission.
+The following evidence files are stored in this repository:
 
-Recommended evidence:
-
-- Architecture diagram
-- Grafana dashboard screenshots
-- Backend and frontend GitHub Actions runs
-- Failed Trivy scan and remediation
-- GHCR package pages
-- Terraform validation and plan output for both environments
-- Kubernetes workloads, Services and RBAC
-- Cron configuration and health-report entries
-- Pull request review and branch-protection evidence, if configured
-
-## Remaining work
-
-- Verify AWS Secrets Manager integration and permissions.
-- - Verify the new Terraform IAM module's permissions, instance-profile attachment and least-privilege access.
-- Complete production compute configuration if required.
-- Install an Ingress controller for end-to-end Ingress routing.
-- Add a SonarQube quality gate or an accepted equivalent.
-- Collect authentic health-check records over multiple days.
-- Confirm evidence screenshots are committed and linked.
-- Verify pull-request review and branch-protection requirements.
-
-ArgoCD is an optional GitOps extension and is not required for the core deployment demonstration.
-
-
-[200~EOF~
+- **Architecture:** [Architecture diagram and design notes](docs/architecture.md)
+- **Backend CI:** [Backend CI screenshot](docs/evidence/ci-cd/backend-ci.png)
+- **Frontend CI:** [Frontend CI screenshot](docs/evidence/ci-cd/frontend-ci.png)
+- **Backend security scan:** [Backend Trivy screenshot](docs/evidence/security/backend-trivy.png)
+- **Frontend security scan:** [Frontend Trivy screenshot](docs/evidence/security/frontend-trivy.png)
+- **Terraform:** [Validation output](docs/evidence/terraform/validate.txt)
+- **Kubernetes:** [Cluster evidence](docs/evidence/k8s.txt)
+- **Prometheus:** [Target-health evidence](docs/evidence/monitoring/prometheus-target-health.json)
+- **Grafana:** [Dashboard screenshot](docs/evidence/monitoring/grafana-dashboard.png)
+- **Cron:** [Scheduled health-check configuration](docs/evidence/crontab.txt)
+- **Health checks:** [Recorded health-check results](docs/evidence/health-report.txt)
