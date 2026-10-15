@@ -1,0 +1,19 @@
+{
+    "status": "success",
+    "data": {
+        "resultType": "vector",
+        "result": [
+            {
+                "metric": {
+                    "__name__": "up",
+                    "instance": "backend:5000",
+                    "job": "zuri-backend"
+                },
+                "value": [
+                    1792092096.159,
+                    "1"
+                ]
+            }
+        ]
+    }
+}
