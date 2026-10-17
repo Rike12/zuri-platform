@@ -1,0 +1,2 @@
+# Zuri platform health-check cron entry
+0 9 * * * HEALTH_REPORT_FILE=/home/mutiat/zuri-health-report.log /bin/bash /home/mutiat/zuri-capstone/zuri-platform/scripts/health-check.sh

@@ -1,0 +1,17 @@
+.env
+*.bak
+*.bak
+# Terraform local files and state
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+
+# Terraform plans and local state
+*.tfplan
+*.tfplan.*
+**/*.tfplan
+**/*.tfplan.*

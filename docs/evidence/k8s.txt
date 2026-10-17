@@ -1,0 +1,11 @@
+default              pod/zuri-backend-56f75995d5-brcfw                1/1     Running   0          44m
+default              pod/zuri-frontend-558d4999b6-499xw               1/1     Running   0          39m
+kube-system          pod/etcd-zuri-control-plane                      1/1     Running   0          63m
+kube-system          pod/kube-apiserver-zuri-control-plane            1/1     Running   0          63m
+kube-system          pod/kube-controller-manager-zuri-control-plane   1/1     Running   0          63m
+kube-system          pod/kube-scheduler-zuri-control-plane            1/1     Running   0          63m
+default       service/zuri-backend    ClusterIP   10.96.55.229   <none>        5000/TCP                 49m
+default       service/zuri-frontend   ClusterIP   10.96.27.104   <none>        80/TCP                   36m
+default     ingress.networking.k8s.io/zuri-ingress   traefik   *                 80      36m
+default              deployment.apps/zuri-backend             1/1     1            1           48m
+default              deployment.apps/zuri-frontend            1/1     1            1           39m

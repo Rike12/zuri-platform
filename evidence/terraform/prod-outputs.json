@@ -1,0 +1,35 @@
+{
+  "private_subnet_ids": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        "string",
+        "string"
+      ]
+    ],
+    "value": [
+      "subnet-05b27f2ea5af796d6",
+      "subnet-06d9ad3c0ce85d045"
+    ]
+  },
+  "public_subnet_ids": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        "string",
+        "string"
+      ]
+    ],
+    "value": [
+      "subnet-0caa05b9c28bcf1f4",
+      "subnet-0409a2ae5b5760943"
+    ]
+  },
+  "vpc_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "vpc-0119211d2c1816a3a"
+  }
+}
