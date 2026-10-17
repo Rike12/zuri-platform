@@ -21,6 +21,37 @@ A DevOps capstone project demonstrating infrastructure as code, containerisation
 
 See [docs/architecture.md](docs/architecture.md) for the architecture diagram.
 
+### Architecture diagram
+
+```mermaid
+flowchart TD
+    Dev[Developer] --> GH[GitHub repositories]
+    GH --> CI[GitHub Actions]
+    CI --> Scan[Trivy image scans]
+    CI --> GHCR[GitHub Container Registry]
+
+    GHCR -.-> Local[Local Kind cluster]
+    Local --> Deploy[Frontend and backend Deployments]
+    Deploy --> Services[ClusterIP Services]
+    Services --> Ingress[Kubernetes Ingress]
+    User[User] --> Ingress
+
+    subgraph AWS["AWS eu-west-2"]
+        TF[Terraform configuration]
+        S3[S3 remote Terraform state]
+        VPC[VPC with public and private subnet definitions]
+        EC2[EC2 instance: zuri-k3s]
+        Nginx[Nginx HTTP/HTTPS endpoint]
+        TF --> VPC
+        TF --> EC2
+        TF --> S3
+        EC2 --> Nginx
+    end
+
+    Browser[External browser or curl] --> Nginx
+    Cron[Daily cron schedule] --> HC[health-check.sh]
+    HC --> Report[Health-check report]
+```
 ## Run locally
 
 Start the application stack:
