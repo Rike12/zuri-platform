@@ -189,6 +189,6 @@ The following evidence files are stored in this repository:
 - **Terraform:** [Validation output](docs/evidence/terraform/validate.txt)
 - **Kubernetes:** [Cluster evidence](docs/evidence/k8s.txt)
 - **Prometheus:** [Target-health evidence](docs/evidence/monitoring/prometheus-target-health.json)
-- **Grafana:** [Dashboard screenshot](docs/evidence/monitoring/grafana-dashboard.png)
+- **Grafana:** [Dashboard screenshot](docs/evidence/monitoring/evidence.png)
 - **Cron:** [Scheduled health-check configuration](docs/evidence/crontab.txt)
 - **Health checks:** [Recorded health-check results](docs/evidence/health-report.txt)
